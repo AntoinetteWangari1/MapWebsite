@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map with Popups</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <style>
+        #map{
+            width: 1250px;
+            height: 550px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="map"></div>
+
+<script>
+    const map = L.map('map');
+    map.setView([-1.3028,36.8848], 10)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+    const customIcon = L.icon({
+        iconUrl: './assets/icon.png',
+        iconSize: [70, 70],
+    })
+
+    L.marker([-1.3031444,36.5177293], {
+        title: 'JKUAT',
+        icon: customIcon,
+    })
+    .bindPopup('<h2>Jomo Kenyatta University of Agriculture and Technology</h2><br>'
+       )
+    .addTo(map)
+
+    L.marker([-1.28333,36.81667], {
+        title: 'UON',
+        icon: customIcon,
+    })
+    .bindPopup('<h2>University of Nairobi</h2><br>'
+       )
+    .addTo(map)
+
+    L.marker([-1.17704	,36.92870], {
+        title: 'KU',
+        icon: customIcon,
+    })
+    .bindPopup('<h2>Kenyatta University</h2><br>'
+       )
+    .addTo(map)
+    
+    L.marker([-1.15230	,37.00183], {
+        title: 'Zetech',
+        icon: customIcon,
+    })
+    .bindPopup('<h2>Zetech University</h2><br>'
+       )
+    .addTo(map)
+    
+
+</script>
+   
+</body>
+</html>
